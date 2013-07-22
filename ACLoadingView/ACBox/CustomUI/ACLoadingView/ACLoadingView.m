@@ -117,6 +117,7 @@
     
     
     //DLog(@"%f----%f", theView.frame.size.height, theView.bounds.size.height);
+    
     //** 开始显示 ***********************************************************************************
     //[self setCenter:theView.center];
     

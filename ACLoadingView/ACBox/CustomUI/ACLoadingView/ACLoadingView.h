@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-/** 重新加载按钮 委托协议 */
+/** 关闭载按钮 委托协议 */
 @protocol ACLoadingViewCloseButtonDelegate <NSObject>
 
 /**
@@ -26,7 +26,6 @@
 
 /** 关闭按钮动作 代理 */
 @property (nonatomic, assign) id <ACLoadingViewCloseButtonDelegate> delegate;
-
 
 
 /**
