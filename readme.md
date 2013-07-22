@@ -1,4 +1,4 @@
-# ACFriendlyView
+# ACLoadingView
 
 带关闭按钮的加载动画
 
