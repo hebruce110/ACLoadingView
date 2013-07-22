@@ -43,7 +43,7 @@
     {
         [_delegate closeButtonPressed:closeBtn];
         // dismiss self
-        [self dismissPopupView];
+        [self dismissLoadingView];
     }
 }
 
@@ -136,7 +136,7 @@
     [self popupAnimation:self duration:0.5];
 }
 
-- (void)dismissPopupView
+- (void)dismissLoadingView
 {
     [_theIndicatorAV stopAnimating];
     

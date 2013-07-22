@@ -22,7 +22,17 @@
 - (IBAction)showACLVBtnPressed:(UIButton *)sender
 {
     // 如果在导航视图控制器中，建议显示在 self.navigationController.view 上，因为关闭按钮的意义就在于禁用包括导航返回的操作。
-    [_theACLV showACLoadingViewInView:self.view withText:@"正在加载..."];
+    [_theACLV showACLoadingViewInView:self.view withText:@"正在加载请稍后..."];
+    
+    double delayInSeconds = 8.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        // 请求有相应分支时，解散加载视图。
+        [_theACLV dismissLoadingView];
+        DLog(@"加载完成");
+        
+    });
 }
 
 #pragma mark - ACLoadingViewCloseButtonDelegate
@@ -51,7 +61,7 @@
     
     self.title = @"ACLVSample";
     
-    DLog(@"%f", self.view.frame.size.height);
+    //DLog(@"%f", self.view.frame.size.height);
     
     _theACLV = [[ACLoadingView alloc] init];
     _theACLV.delegate = self;

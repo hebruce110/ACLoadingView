@@ -21,7 +21,6 @@
 @end
 
 
-
 @interface ACLoadingView : UIView
 
 /** 关闭按钮动作 代理 */
@@ -34,5 +33,10 @@
  * @param theText 加载提示字符串
  */
 - (void)showACLoadingViewInView:(UIView *)theView withText:(NSString *)theText;
+
+/**
+ * 解散加载视图
+ */
+- (void)dismissLoadingView;
 
 @end
