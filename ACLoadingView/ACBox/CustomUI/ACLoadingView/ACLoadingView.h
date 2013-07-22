@@ -14,7 +14,7 @@
 
 /**
  * 关闭按钮 代理回调方法
- * @param closeButton 刷新按钮
+ * @param closeButton 关闭按钮
  */
 - (void)closeButtonPressed:(UIButton *)closeButton;
 
