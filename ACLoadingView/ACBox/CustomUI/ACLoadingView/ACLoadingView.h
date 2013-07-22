@@ -10,7 +10,7 @@
 
 
 /** 关闭按钮 委托协议 */
-@protocol ACLoadingViewCloseButtonDelegate <NSObject>
+@protocol ACLVCloseButtonDelegate <NSObject>
 
 /**
  * 关闭按钮 代理回调方法
@@ -24,7 +24,7 @@
 @interface ACLoadingView : UIView
 
 /** 关闭按钮动作 代理 */
-@property (nonatomic, assign) id <ACLoadingViewCloseButtonDelegate> delegate;
+@property (nonatomic, assign) id <ACLVCloseButtonDelegate> delegate;
 
 
 /**

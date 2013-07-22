@@ -8,9 +8,10 @@
 
 #import "ACLoadingView.h"
 
-#define ACLV_FontSize 16.f
 
-#define ACLF_View_Height 50.f
+#define ACLV_FontSize 16.f
+#define ACLV_Height 50.f
+
 
 @interface ACLoadingView ()
 {
@@ -65,15 +66,15 @@
     //  间距 菊花  间距   字符显示长度      间距     关闭按钮          |
     
     // 得出 self 的 显示宽度
-    CGFloat view_width = 10 + 20 + 3 + lableSize.width + 15 + ACLF_View_Height;
+    CGFloat view_width = 10 + 20 + 3 + lableSize.width + 15 + ACLV_Height;
     [self setBounds:CGRectMake(0,
                                0,
                                view_width,
-                               ACLF_View_Height)];
+                               ACLV_Height)];
     
     //-- 旋转动画 -----------------------------------------------------------------------------------
     _theIndicatorAV.frame = CGRectMake(10.f,
-                                       (ACLF_View_Height - 20) / 2.f,
+                                       (ACLV_Height - 20) / 2.f,
                                        20.f,
                                        20.f);
     
@@ -90,7 +91,7 @@
     
     //-- 文字标签 -----------------------------------------------------------------------------------
     [_textLabel setFrame:CGRectMake(10 + 20 + 3.f,
-                                    (ACLF_View_Height - lableSize.height) / 2,
+                                    (ACLV_Height - lableSize.height) / 2,
                                     lableSize.width,
                                     lableSize.height)];
     
@@ -100,16 +101,16 @@
     
     
     // 白色分割线
-    [_separateLine setFrame:CGRectMake(view_width - ACLF_View_Height - 1.f,
+    [_separateLine setFrame:CGRectMake(view_width - ACLV_Height - 1.f,
                                        0.f,
                                        1.f,
-                                       ACLF_View_Height)];
+                                       ACLV_Height)];
     
     
     //-- 关闭按钮 -----------------------------------------------------------------------------------
-    CGFloat closeBtn_w = ACLF_View_Height;
+    CGFloat closeBtn_w = ACLV_Height;
     CGFloat closeBtn_h = closeBtn_w;
-    CGFloat closeBtn_x = view_width - ((ACLF_View_Height - closeBtn_w) / 2) - closeBtn_w;
+    CGFloat closeBtn_x = view_width - ((ACLV_Height - closeBtn_w) / 2) - closeBtn_w;
     CGFloat closeBtn_y = 0.f;
     [_closeButton setFrame:CGRectMake(closeBtn_x,
                                       closeBtn_y,
@@ -124,9 +125,9 @@
     //[self setCenter:theView.center];
     
     [self setFrame:CGRectMake((theView.frame.size.width - view_width) / 2.f,
-                              (theView.frame.size.height - ACLF_View_Height) / 2.f,
+                              (theView.frame.size.height - ACLV_Height) / 2.f,
                               view_width,
-                              ACLF_View_Height)];
+                              ACLV_Height)];
     
     [theView addSubview:_mask];
     [theView addSubview:(UIView *)self];

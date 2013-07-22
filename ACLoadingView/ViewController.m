@@ -10,7 +10,7 @@
 
 #import "ACLoadingView.h"
 
-@interface ViewController () <ACLoadingViewCloseButtonDelegate>
+@interface ViewController () <ACLVCloseButtonDelegate>
 {
     ACLoadingView *_theACLV;
     
