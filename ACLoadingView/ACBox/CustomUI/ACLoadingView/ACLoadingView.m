@@ -47,6 +47,8 @@
     }
 }
 
+#pragma mark - Public Methods
+
 - (void)showACLoadingViewInView:(UIView *)theView withText:(NSString *)theText
 {
     // 字符串显示的宽度
@@ -60,10 +62,10 @@
     
     //  10   20   3    lableSize.width   15      50              |
     //  [ ]  *   []    _______________   [ ]      x              |>  高度 50
-    //  间距 菊花  间距   字符显示长度      间距     关闭按钮         |
+    //  间距 菊花  间距   字符显示长度      间距     关闭按钮          |
     
     // 得出 self 的 显示宽度
-    CGFloat view_width = 10 + 20 + 8 + lableSize.width + 10 + ACLF_View_Height;
+    CGFloat view_width = 10 + 20 + 3 + lableSize.width + 15 + ACLF_View_Height;
     [self setBounds:CGRectMake(0,
                                0,
                                view_width,
@@ -157,6 +159,8 @@
                                  }
      ];
 }
+
+#pragma mark - Private Method
 
 - (void)popupAnimation:(UIView *)outView duration:(CFTimeInterval)duration
 {
