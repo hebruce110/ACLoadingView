@@ -8,6 +8,7 @@
 
 #import "ACLoadingView.h"
 
+#import <QuartzCore/QuartzCore.h>
 
 #define ACLV_FontSize 16.f
 #define ACLV_Height 50.f
