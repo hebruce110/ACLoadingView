@@ -1,9 +1,10 @@
 # ACLoadingView
+--------------------
 
 带关闭按钮的加载动画
 
-
 <img src="https://github.com/albertgh/ACLoadingView/raw/master/screenshot.png"/>
+
 
 
 # Usage
@@ -49,7 +50,7 @@
 
 
 ## Minimum Requirements
---------------------
+
 * ARC - this project uses ARC. If you are not using ARC in your project, add '-fobjc-arc' as a compiler flag for ACLoadingView.m
 * XCode 4.4 and newer (auto-synthesis required)
 
