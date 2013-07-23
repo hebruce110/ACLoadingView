@@ -3,7 +3,7 @@
 
 带关闭按钮的加载动画
 
-<img src="https://github.com/albertgh/ACLoadingView/raw/master/screenshot.png"/>
+<img src="https://github.com/albertgh/ACLoadingView/raw/master/screenshot.gif"/>
 
 
 
