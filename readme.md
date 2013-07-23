@@ -16,23 +16,15 @@
 2) Create ACLoadingView
 	
     _theACLV = [[ACLoadingView alloc] init];
-    _theACLV.delegate = self;
     
 
-3) 显示
-	
-	// 显示加载视图
-    [_theACLV showACLoadingViewInView:self.view withText:@"your loading text"];
+3) 关闭按钮代理回调
 
-    // 隐藏加载视图
-    [_theACLV dismissLoadingView];
+ 	// 实现 <ACLVCloseButtonDelegate> 协议
 
+	_theACLV.delegate = self;
 
-4) 关闭按钮代理回调
-
- 	实现 <ACLVCloseButtonDelegate> 协议
-
- 	加上回调方法
+ 	// 加上回调方法
 
  	#pragma mark - ACLoadingViewCloseButtonDelegate
 
@@ -41,6 +33,17 @@
 	    //_isLoading = NO;
 	    DLog(@"取消按钮时相应操作，取消http请求等操作。");
 	}
+
+4) 显示
+	
+	// 显示加载视图
+    [_theACLV showACLoadingViewInView:self.view withText:@"your loading text"];
+
+    // 隐藏加载视图
+    [_theACLV dismissLoadingView];
+
+
+
 
 
 Minimum Requirements
@@ -51,5 +54,6 @@ Minimum Requirements
 
 ## Contact
 
+Twitter、Weibo @码农白腩肚
 935886355@qq.com
 

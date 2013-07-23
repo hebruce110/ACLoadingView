@@ -42,7 +42,7 @@
     });
 }
 
-#pragma mark - ACLoadingViewCloseButtonDelegate
+#pragma mark - ACLVCloseButtonDelegate
 
 - (void)closeButtonPressed:(UIButton *)closeButton
 {
