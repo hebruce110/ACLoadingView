@@ -6,17 +6,19 @@
 <img src="https://github.com/albertgh/ACLoadingView/raw/master/screenshot.png"/>
 
 
-## Usage
+# Usage
 
 1) Drag ACLoadingView.h and ACLoadingView.m into your project.  Add QuartzCore.framework
 
     #import "ACLoadingView.h"
     
 	
+
 2) Create ACLoadingView
 	
     _theACLV = [[ACLoadingView alloc] init];
     
+
 
 3) 关闭按钮代理回调
 
@@ -34,6 +36,8 @@
 	    DLog(@"取消按钮时相应操作，取消http请求等操作。");
 	}
 
+
+
 4) 显示
 	
 	// 显示加载视图
@@ -44,16 +48,15 @@
 
 
 
-
-
-Minimum Requirements
+## Minimum Requirements
 --------------------
 * ARC - this project uses ARC. If you are not using ARC in your project, add '-fobjc-arc' as a compiler flag for ACLoadingView.m
 * XCode 4.4 and newer (auto-synthesis required)
 
 
+
 ## Contact
 
 Twitter、Weibo @码农白腩肚
-935886355@qq.com
+
 
