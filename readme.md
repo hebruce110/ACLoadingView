@@ -27,7 +27,7 @@
     [_theACLV showACLoadingViewInView:self.view withText:@"your loading text"];
 
     // 隐藏加载视图
-    [_theACLV dismissLoadingView];
+    [_theACLV hideLoadingView];
    
     
 
