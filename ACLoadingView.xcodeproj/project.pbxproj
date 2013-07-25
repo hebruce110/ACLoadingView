@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18D8FD7F17A0EC610065DADB /* nav_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D8FD7B17A0EC610065DADB /* nav_back.png */; };
+		18D8FD8017A0EC610065DADB /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D8FD7C17A0EC610065DADB /* nav_back@2x.png */; };
+		18D8FD8117A0EC610065DADB /* nav_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D8FD7D17A0EC610065DADB /* nav_bar.png */; };
+		18D8FD8217A0EC610065DADB /* nav_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D8FD7E17A0EC610065DADB /* nav_bar@2x.png */; };
+		18D8FD8517A100A80065DADB /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D8FD8417A100A80065DADB /* UIAlertView+Blocks.m */; };
 		18FC73D0179D2A910084648E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FC73CF179D2A910084648E /* UIKit.framework */; };
 		18FC73D2179D2A910084648E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FC73D1179D2A910084648E /* Foundation.framework */; };
 		18FC73D4179D2A910084648E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FC73D3179D2A910084648E /* CoreGraphics.framework */; };
@@ -25,6 +30,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18D8FD7B17A0EC610065DADB /* nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_back.png; sourceTree = "<group>"; };
+		18D8FD7C17A0EC610065DADB /* nav_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_back@2x.png"; sourceTree = "<group>"; };
+		18D8FD7D17A0EC610065DADB /* nav_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar.png; sourceTree = "<group>"; };
+		18D8FD7E17A0EC610065DADB /* nav_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar@2x.png"; sourceTree = "<group>"; };
+		18D8FD8317A100A80065DADB /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		18D8FD8417A100A80065DADB /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		18FC73CC179D2A910084648E /* ACLoadingView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACLoadingView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FC73CF179D2A910084648E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18FC73D1179D2A910084648E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,6 +79,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18D8FD7A17A0EC610065DADB /* imgs */ = {
+			isa = PBXGroup;
+			children = (
+				18D8FD7B17A0EC610065DADB /* nav_back.png */,
+				18D8FD7C17A0EC610065DADB /* nav_back@2x.png */,
+				18D8FD7D17A0EC610065DADB /* nav_bar.png */,
+				18D8FD7E17A0EC610065DADB /* nav_bar@2x.png */,
+			);
+			path = imgs;
+			sourceTree = "<group>";
+		};
 		18F3CF56179D307A002E5E30 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +137,7 @@
 				18FC73DF179D2A910084648E /* AppDelegate.m */,
 				18FC73FC179D2B060084648E /* ACLoadingViewClasses */,
 				18F3CF56179D307A002E5E30 /* Sample */,
+				18D8FD7A17A0EC610065DADB /* imgs */,
 				18FC73D6179D2A910084648E /* Supporting Files */,
 			);
 			path = ACLoadingView;
@@ -166,6 +189,8 @@
 			children = (
 				18FC73F9179D2B060084648E /* UINavigationBar+Background.h */,
 				18FC73FA179D2B060084648E /* UINavigationBar+Background.m */,
+				18D8FD8317A100A80065DADB /* UIAlertView+Blocks.h */,
+				18D8FD8417A100A80065DADB /* UIAlertView+Blocks.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -245,6 +270,10 @@
 				18FC73E4179D2A910084648E /* Default@2x.png in Resources */,
 				18FC73E6179D2A910084648E /* Default-568h@2x.png in Resources */,
 				18FC7409179D2B930084648E /* ViewController.xib in Resources */,
+				18D8FD7F17A0EC610065DADB /* nav_back.png in Resources */,
+				18D8FD8017A0EC610065DADB /* nav_back@2x.png in Resources */,
+				18D8FD8117A0EC610065DADB /* nav_bar.png in Resources */,
+				18D8FD8217A0EC610065DADB /* nav_bar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +290,7 @@
 				18FC7403179D2B060084648E /* UINavigationBar+Background.m in Sources */,
 				18FC7404179D2B060084648E /* ACLoadingView.m in Sources */,
 				18FC7408179D2B930084648E /* ViewController.m in Sources */,
+				18D8FD8517A100A80065DADB /* UIAlertView+Blocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

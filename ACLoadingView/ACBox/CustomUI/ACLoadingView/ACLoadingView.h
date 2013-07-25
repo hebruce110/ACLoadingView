@@ -37,6 +37,6 @@
 /**
  * 解散加载视图
  */
-- (void)dismissLoadingView;
+- (void)hideLoadingView;
 
 @end

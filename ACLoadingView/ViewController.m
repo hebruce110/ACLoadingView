@@ -19,35 +19,40 @@
 
 @end
 
+
 @implementation ViewController
+
+
+#pragma mark - Action Methods
+
+- (void)barButtonItemPressed:(UIButton *)sender
+{
+    [UIAlertView showAlertViewWithTitle:@"Notice"
+                                message:@"Can't reach this button while loading."
+                      cancelButtonTitle:nil
+                      otherButtonTitles:[NSArray arrayWithObject:@"I see"]
+                              onDismiss:^(int buttonIndex)
+                                        {
+                                            NSLog(@"Button Dismissed");
+                                        }
+                               onCancel:^{}];
+}
 
 - (IBAction)showACLVBtnPressed:(UIButton *)sender
 {
     // 如果在导航视图控制器中，建议显示在 self.navigationController.view 上，因为关闭按钮的意义就在于禁用包括导航返回的操作。
-    [_theACLV showACLoadingViewInView:self.view withText:@"正在加载请稍后..."];
+    [_theACLV showACLoadingViewInView:self.navigationController.view withText:@"loading..."];
     _isLoading = YES;
-    
-    double delayInSeconds = 8.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
-        // 请求有相应分支时，解散加载视图。
-        if (_isLoading)
-        {
-            [_theACLV dismissLoadingView];
-            _isLoading = NO;
-            DLog(@"加载完成");
-        }
-        
-    });
 }
+
 
 #pragma mark - ACLVCloseButtonDelegate
 
 - (void)closeButtonPressed:(UIButton *)closeButton
 {
+    [_theACLV hideLoadingView];
     _isLoading = NO;
-    DLog(@"取消按钮时相应操作，取消http请求等操作。");
+    DLog(@"关闭时相应操作，如取消http请求等。");
 }
 
 
@@ -73,6 +78,18 @@
     
     _theACLV = [[ACLoadingView alloc] init];
     _theACLV.delegate = self;
+    
+    
+    //** barButton **************************************************************************
+	UIBarButtonItem *showButtonItem =
+    [[UIBarButtonItem alloc]initWithTitle:@"notice"
+                                    style:UIBarButtonItemStyleBordered
+                                   target:self
+                                   action:@selector(barButtonItemPressed:)];
+    
+    showButtonItem.tintColor = C_BarButtonItemTintColor;
+    
+    self.navigationItem.rightBarButtonItem = showButtonItem;
 }
 
 - (void)didReceiveMemoryWarning

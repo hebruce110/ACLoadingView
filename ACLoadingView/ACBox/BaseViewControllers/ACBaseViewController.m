@@ -9,7 +9,7 @@
 
 @interface ACBaseViewController ()
 {
-
+    
 }
 
 @end
@@ -52,17 +52,20 @@
     
     
     //-- 返回按钮 -----------------------------------------------------------------------------------
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setFrame:CGRectMake(0.f, (kTopBarHeight - 20.f) / 2.f, 40.f, 20.f)];
-    [backBtn setBackgroundImage:PNGIMAGE(@"nav_back") forState:UIControlStateNormal];
-    
-    //[backBtn setTitle:@"\t返回" forState:UIControlStateNormal];
-    backBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14.f];
-    
-    [backBtn addTarget:self action:@selector(backBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-    self.navigationItem.leftBarButtonItem = backBarItem;
+    if (_doNotNeedBackButton == NO)
+    {
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backBtn setFrame:CGRectMake(0.f, (kTopBarHeight - 20.f) / 2.f, 40.f, 20.f)];
+        [backBtn setBackgroundImage:PNGIMAGE(@"nav_back") forState:UIControlStateNormal];
+        
+        //[backBtn setTitle:@"\t返回" forState:UIControlStateNormal];
+        backBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14.f];
+        
+        [backBtn addTarget:self action:@selector(backBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        self.navigationItem.leftBarButtonItem = backBarItem;
+    }
     //---------------------------------------------------------------------------------------------;
     
     

@@ -18,6 +18,9 @@ enum EM_BaseVC_LoadType
 /** 视图控制器加载类型 */
 @property (nonatomic) NSInteger loadType;
 
+/** 是否需要返回按钮 */
+@property (nonatomic) BOOL doNotNeedBackButton;
+
 
 /**
  * 导航栏返回按钮事件

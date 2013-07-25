@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define ACLV_FontSize 16.f
-#define ACLV_Height 50.f
+#define ACLV_Height 44.f
 
 
 @interface ACLoadingView ()
@@ -44,8 +44,6 @@
     if (nil != _delegate && [_delegate respondsToSelector:@selector(closeButtonPressed:)])
     {
         [_delegate closeButtonPressed:closeBtn];
-        // dismiss self
-        [self dismissLoadingView];
     }
 }
 
@@ -54,20 +52,23 @@
 - (void)showACLoadingViewInView:(UIView *)theView withText:(NSString *)theText
 {
     // 字符串显示的宽度
-    CGSize lableSize = [theText sizeWithFont:[UIFont systemFontOfSize:ACLV_FontSize]
+    CGSize lableSize = [theText sizeWithFont:[UIFont boldSystemFontOfSize:ACLV_FontSize]
                                  constrainedToSize:CGSizeMake(200.f, MAXFLOAT)
                                      lineBreakMode:LINE_BREAK_WORD_WRAP];
     
     
-    //NSLog(@"W:%f-----H:%f", lableSize.width, lableSize.height);
+    //DLog(@"W:%f-----H:%f", lableSize.width, lableSize.height);
     
     
-    //  10   20   3    lableSize.width   15      50              |
-    //  [ ]  *   []    _______________   [ ]      x              |>  高度 50
+    //  10   20   3    lableSize.width   15      44              |
+    //  [ ]  *   []    _______________   [ ]      x              |>  高度 44
     //  间距 菊花  间距   字符显示长度      间距     关闭按钮          |
+    
     
     // 得出 self 的 显示宽度
     CGFloat view_width = 10 + 20 + 3 + lableSize.width + 15 + ACLV_Height;
+    //DLog(@"%f", view_width);
+    
     [self setBounds:CGRectMake(0,
                                0,
                                view_width,
@@ -95,9 +96,9 @@
                                     (ACLV_Height - lableSize.height) / 2,
                                     lableSize.width,
                                     lableSize.height)];
-    
-    [_textLabel setText:theText];
+
     [_textLabel setFont:[UIFont boldSystemFontOfSize:ACLV_FontSize]];
+    [_textLabel setText:theText];
     //---------------------------------------------------------------------------------------------;
     
     
@@ -140,7 +141,7 @@
     [self popupAnimation:self duration:0.5];
 }
 
-- (void)dismissLoadingView
+- (void)hideLoadingView
 {
     [_theIndicatorAV stopAnimating];
     
@@ -155,9 +156,7 @@
                      completion:
                                  ^(BOOL finished)
                                  {
-                                     [self removeFromSuperview];
-                                     
-                                     [_mask removeFromSuperview];
+
                                  }
      ];
 }

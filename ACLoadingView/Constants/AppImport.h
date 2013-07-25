@@ -21,5 +21,8 @@
 #import "ACBaseViewController.h"
 
 
+//** 类别 ***********************************************************************************
+#import "UIAlertView+Blocks.h"
+
 
 #endif
