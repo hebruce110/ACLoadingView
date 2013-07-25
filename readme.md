@@ -21,7 +21,17 @@
     
 
 
-3) 关闭按钮代理回调
+3) 调用方式
+	
+	// 显示加载视图
+    [_theACLV showACLoadingViewInView:self.view withText:@"your loading text"];
+
+    // 隐藏加载视图
+    [_theACLV dismissLoadingView];
+   
+    
+
+4) 关闭按钮代理回调
 
  	// 实现 <ACLVCloseButtonDelegate> 协议
 
@@ -33,19 +43,10 @@
 
 	- (void)closeButtonPressed:(UIButton *)closeButton
 	{
+		[_theACLV hideLoadingView];
 	    //_isLoading = NO;
 	    DLog(@"取消按钮时相应操作，取消http请求等操作。");
 	}
-
-
-
-4) 显示
-	
-	// 显示加载视图
-    [_theACLV showACLoadingViewInView:self.view withText:@"your loading text"];
-
-    // 隐藏加载视图
-    [_theACLV dismissLoadingView];
 
 
 
