@@ -14,12 +14,12 @@ static CancelBlock _cancelBlock;
 
 @implementation UIAlertView (Blocks)
 
-+ (UIAlertView*) showAlertViewWithTitle:(NSString*) title
-                                message:(NSString*) message
-                      cancelButtonTitle:(NSString*) cancelButtonTitle
-                      otherButtonTitles:(NSArray*) otherButtons
-                              onDismiss:(DismissBlock) dismissed
-                               onCancel:(CancelBlock) cancelled
++ (UIAlertView *)showAlertViewWithTitle:(NSString *)title
+                                message:(NSString *)message
+                      cancelButtonTitle:(NSString *)cancelButtonTitle
+                      otherButtonTitles:(NSArray*)otherButtons
+                              onDismiss:(DismissBlock)dismissed
+                               onCancel:(CancelBlock)cancelled
 {
     _cancelBlock  = [cancelled copy];
     
@@ -32,14 +32,16 @@ static CancelBlock _cancelBlock;
                                           otherButtonTitles:nil];
     
     for(NSString *buttonTitle in otherButtons)
+    {
         [alert addButtonWithTitle:buttonTitle];
+    }
     
     [alert show];
     return alert;
 }
 
 //处理UIAlertViewDelegate
-+ (void)alertView:(UIAlertView*) alertView didDismissWithButtonIndex:(NSInteger) buttonIndex
++ (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == [alertView cancelButtonIndex])
     {

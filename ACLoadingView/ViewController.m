@@ -26,14 +26,14 @@
 #pragma mark - Action Methods
 
 - (void)barButtonItemPressed:(UIButton *)sender
-{
+{    
     [UIAlertView showAlertViewWithTitle:@"Notice"
                                 message:@"Can't reach this button while loading."
                       cancelButtonTitle:nil
                       otherButtonTitles:[NSArray arrayWithObject:@"I see"]
                               onDismiss:^(int buttonIndex)
                                         {
-                                            NSLog(@"Button Dismissed");
+                                            DLog(@"\r\no::{===> buttonIndex:%d", buttonIndex);
                                         }
                                onCancel:^{}];
 }
@@ -43,6 +43,29 @@
     // 如果在导航视图控制器中，建议显示在 self.navigationController.view 上，因为关闭按钮的意义就在于禁用包括导航返回的操作。
     [_theACLV showACLoadingViewInView:self.navigationController.view withText:@"loading..."];
     _isLoading = YES;
+    
+    // 模拟 6秒 后加载完毕
+    [self performSelector:@selector(loadingComplete) withObject:nil afterDelay:6.f];
+    
+//    double delayInSeconds = 6.0;
+//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        
+//        [self loadingComplete];
+//        DLog(@"这个点几次按钮，就会有几个线程。");
+//        // 好像 dispatch_after 没有取消的方法，所以这里用不合适
+//        
+//    });
+    
+}
+
+#pragma mark - Private Method
+
+- (void)loadingComplete
+{
+    [_theACLV hideLoadingView];
+    _isLoading = NO;
+    DLog(@"loadingComplete");
 }
 
 
@@ -52,7 +75,11 @@
 {
     [_theACLV hideLoadingView];
     _isLoading = NO;
-    DLog(@"关闭时相应操作，如取消http请求等。");
+    
+    // 取消延迟执行 加载完毕自动隐藏加载动画的方法
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadingComplete) object:nil];
+    
+    DLog(@"关闭时相应操作，如取消http请求等。");        
 }
 
 
