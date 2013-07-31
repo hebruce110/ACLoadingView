@@ -55,7 +55,9 @@
 	在 ACLoadingView.h 头部宏中选择
 	ACLV_USING_TYPE ACLoadingViewTypeiOS
 
-	<img src="https://github.com/albertgh/ACLoadingView/raw/master/style.png"/>
+<img src="https://github.com/albertgh/ACLoadingView/raw/master/style.png"/>
+
+
 
 ## Minimum Requirements
 
