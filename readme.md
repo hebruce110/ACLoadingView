@@ -48,7 +48,14 @@
 	    DLog(@"取消按钮时相应操作，取消http请求等操作。");
 	}
 
+5) 新增两种样式
 
+	默认iOS风格
+
+	在 ACLoadingView.h 头部宏中选择
+	ACLV_USING_TYPE ACLoadingViewTypeiOS
+
+	<img src="https://github.com/albertgh/ACLoadingView/raw/master/style.png"/>
 
 ## Minimum Requirements
 

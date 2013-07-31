@@ -41,7 +41,7 @@
 - (IBAction)showACLVBtnPressed:(UIButton *)sender
 {
     // 如果在导航视图控制器中，建议显示在 self.navigationController.view 上，因为关闭按钮的意义就在于禁用包括导航返回的操作。
-    [_theACLV showACLoadingViewInView:self.navigationController.view withText:@"loading..."];
+    [_theACLV showACLoadingViewOnView:self.navigationController.view withText:@"加载中，请稍后..."];
     _isLoading = YES;
     
     // 模拟 6秒 后加载完毕

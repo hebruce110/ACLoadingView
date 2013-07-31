@@ -32,7 +32,7 @@
  * @param theView 指定的UIView
  * @param theText 加载提示字符串
  */
-- (void)showACLoadingViewInView:(UIView *)theView withText:(NSString *)theText;
+- (void)showACLoadingViewOnView:(UIView *)theView withText:(NSString *)theText;
 
 /**
  * 解散加载视图

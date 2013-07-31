@@ -27,6 +27,8 @@
 		18FC7408179D2B930084648E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC7406179D2B930084648E /* ViewController.m */; };
 		18FC7409179D2B930084648E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC7407179D2B930084648E /* ViewController.xib */; };
 		18FC740B179D2C820084648E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FC740A179D2C820084648E /* QuartzCore.framework */; };
+		5011745017A8FADA00C6E43C /* btn_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5011744E17A8FADA00C6E43C /* btn_close.png */; };
+		5011745117A8FADA00C6E43C /* btn_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5011744F17A8FADA00C6E43C /* btn_close@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		18FC7406179D2B930084648E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		18FC7407179D2B930084648E /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		18FC740A179D2C820084648E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5011744E17A8FADA00C6E43C /* btn_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_close.png; sourceTree = "<group>"; };
+		5011744F17A8FADA00C6E43C /* btn_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_close@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 		18D8FD7A17A0EC610065DADB /* imgs */ = {
 			isa = PBXGroup;
 			children = (
+				5011744E17A8FADA00C6E43C /* btn_close.png */,
+				5011744F17A8FADA00C6E43C /* btn_close@2x.png */,
 				18D8FD7B17A0EC610065DADB /* nav_back.png */,
 				18D8FD7C17A0EC610065DADB /* nav_back@2x.png */,
 				18D8FD7D17A0EC610065DADB /* nav_bar.png */,
@@ -274,6 +280,8 @@
 				18D8FD8017A0EC610065DADB /* nav_back@2x.png in Resources */,
 				18D8FD8117A0EC610065DADB /* nav_bar.png in Resources */,
 				18D8FD8217A0EC610065DADB /* nav_bar@2x.png in Resources */,
+				5011745017A8FADA00C6E43C /* btn_close.png in Resources */,
+				5011745117A8FADA00C6E43C /* btn_close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
