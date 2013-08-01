@@ -10,15 +10,18 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#define ACLV_Cancel_String  @"Cancel"
+
 #define ACLV_FontSize       16.f    // 提示信息字体大小
 #define ACLV_Height         50.f    // 视图黑色区域高度
 #define ACLV_VIEW_ALPHA     0.8f    // 视图透明度
 
-#define ACLV_USING_TYPE ACLoadingViewTypeiOS     // 正在使用的样式
+#define ACLV_USING_TYPE ACLoadingViewTypeMellow     // 正在使用的样式
 
 typedef enum
 {
-    ACLoadingViewTypeiOS = 213213,      // iOS 风格
+    ACLoadingViewTypeMellow = 213213,   // 圆润。。不知道该叫啥了
+    ACLoadingViewTypeiOS,               // iOS 风格
     ACLoadingViewTypeSmooth,            // 圆角 风格
     ACLoadingViewTypeSquare             // 方形 风格
 } ACLoadingViewType;
@@ -78,9 +81,15 @@ typedef enum
     }
     
     // 圆角 风格
-    else
+    else if (ACLoadingViewTypeSmooth == ACLV_USING_TYPE)
     {
         [self createLoadingViewAsSmoothTypeOnView:theView withText:theText];
+    }
+    
+    // 默认风格
+    else
+    {
+        [self createLoadingViewAsMellowTypeOnView:theView withText:theText];
     }
     
 }
@@ -105,7 +114,9 @@ typedef enum
      ];
 }
 
-#pragma mark - Private Method
+#pragma mark - Private Methods
+
+/** 弹出视图的动画 */
 
 - (void)popupAnimation:(UIView *)outView duration:(CFTimeInterval)duration
 {
@@ -129,7 +140,130 @@ typedef enum
 }
 
 
-/** iOS样式 */
+#pragma mark - Create Loading View By Type
+
+/** mellow 风格 */
+- (void)createLoadingViewAsMellowTypeOnView:(UIView *)theView withText:(NSString *)theText
+{
+    // 字符串显示的宽高 
+    CGSize lableSize = [theText sizeWithFont:[UIFont boldSystemFontOfSize:ACLV_FontSize]
+                           constrainedToSize:CGSizeMake(180.f, 40.f)    // (最多2行)
+                               lineBreakMode:LINE_BREAK_WORD_WRAP];
+        
+    //      ------------------          12
+    //     (        @         )         40
+    //     (                  )         3
+    //     (     loading      )             \  label height
+    //     (     string...    )             /
+    //     (                  )         15
+    //     (      cancel      )         fontSize
+    //      ------------------          15
+    
+    CGFloat padding_top = 12.f;
+    CGFloat padding_left = 20.f;
+    
+    CGFloat indicatorView_w_h = 40.f;
+    
+    // 得出 self 的 显示宽高
+    CGFloat view_width = lableSize.width + padding_left * 2.f;
+    CGFloat view_height = padding_top + indicatorView_w_h + 3 + lableSize.height + 15 + ACLV_FontSize + 15.f;
+    
+    
+    //-- 背景 ---------------------------------------------------------------------------------------
+    // 阴影
+//    _viewBG.shadowColor = [UIColor blackColor].CGColor;
+//    _viewBG.shadowOffset = CGSizeMake(0.0f, 1.0f);
+//    _viewBG.shadowRadius = 0.5f;
+//    _viewBG.shadowOpacity = 0.8f;
+//    _viewBG.masksToBounds = NO;
+    
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(1.0f, 3.0f);
+    self.layer.shadowRadius = 3.5f;
+    self.layer.shadowOpacity = 5.5f;
+    self.layer.masksToBounds = NO;
+    
+    // 背景色 的 显示宽度 与 self 大小一致
+    [_viewBG setCornerRadius:(5.f)];
+    [_viewBG setMasksToBounds:YES];
+    [_viewBG setFrame:CGRectMake(0.f,
+                                 0.f,
+                                 view_width,
+                                 view_height)];
+    //---------------------------------------------------------------------------------------------;
+    
+       
+    //-- 旋转动画 -----------------------------------------------------------------------------------
+    _theIndicatorAV.frame = CGRectMake((view_width - indicatorView_w_h) / 2.f,
+                                       padding_top,
+                                       indicatorView_w_h,
+                                       indicatorView_w_h);
+        
+    [_theIndicatorAV setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    [_theIndicatorAV startAnimating];
+    //---------------------------------------------------------------------------------------------;
+    
+    
+    //-- 文字标签 -----------------------------------------------------------------------------------
+    [_textLabel setFrame:CGRectMake(padding_left,
+                                    MaxY(_theIndicatorAV) + 3.f,
+                                    lableSize.width,
+                                    lableSize.height)];
+    
+    //[_textLabel setBackgroundColor:[UIColor yellowColor]];
+    [_textLabel setFont:[UIFont boldSystemFontOfSize:ACLV_FontSize]];
+    
+    _textLabel.numberOfLines = 0;       // 自动换行
+    
+    [_textLabel setText:theText];
+    //---------------------------------------------------------------------------------------------;
+    
+    
+    // 白色分割线
+    _separateLine.hidden = NO;
+    [_separateLine setFrame:CGRectMake(0.f,
+                                       MaxY(_textLabel) + 10.f,
+                                       view_width,
+                                       1.f)];
+    
+    //-- 取消按钮 -----------------------------------------------------------------------------------
+    //[_closeButton setBackgroundColor:[UIColor clearColor]];
+    
+    //[_closeButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    //[_closeButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    _closeButton.titleLabel.font = [UIFont boldSystemFontOfSize:(ACLV_FontSize + 2.f)];
+    [_closeButton setTitle:ACLV_Cancel_String forState:UIControlStateNormal];
+    
+    CGFloat closeBtn_w = lableSize.width;
+    CGFloat closeBtn_h = ACLV_FontSize;
+    CGFloat closeBtn_x = padding_left;
+    CGFloat closeBtn_y = MaxY(_textLabel) + 20.f;
+    [_closeButton setFrame:CGRectMake(closeBtn_x,
+                                      closeBtn_y,
+                                      closeBtn_w,
+                                      closeBtn_h)];
+    //---------------------------------------------------------------------------------------------;
+    
+    
+    //** 开始显示 ***********************************************************************************
+    [self setFrame:CGRectMake((theView.frame.size.width - view_width) / 2.f,
+                              (theView.frame.size.height - view_height) / 2.f,
+                              view_width,
+                              view_height)];
+    
+    [theView addSubview:_mask];
+    [theView addSubview:(UIView *)self];
+    [theView bringSubviewToFront:self];
+    
+    [_mask setAlpha:.2f];
+    [self setAlpha:ACLV_VIEW_ALPHA];
+    
+    [self popupAnimation:self duration:0.5];
+}
+
+/** iOS 风格 */
 - (void)createLoadingViewAsiOSTypeOnView:(UIView *)theView withText:(NSString *)theText
 {
     // 字符串显示的宽度
@@ -385,8 +519,6 @@ typedef enum
     [_closeButton setBackgroundColor:[UIColor clearColor]];
     _closeButton.titleLabel.font = [UIFont systemFontOfSize:20.f];
     [_closeButton setTitle:@"x" forState:UIControlStateNormal];
-    //[_closeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    //[_closeButton setTitleColor:[UIColor grayColor] forState:UIControlEventTouchUpInside];
     
     CGFloat closeBtn_w = ACLV_Height;
     CGFloat closeBtn_h = closeBtn_w;
@@ -461,6 +593,8 @@ typedef enum
                 
         // 关闭按钮
         _closeButton = [[UIButton alloc] init];
+        [_closeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_closeButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
         [_closeButton addTarget:self action:@selector(closeBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:_closeButton];

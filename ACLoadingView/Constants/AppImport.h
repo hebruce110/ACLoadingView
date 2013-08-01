@@ -23,6 +23,7 @@
 
 //** 类别 ***********************************************************************************
 #import "UIAlertView+Blocks.h"
+#import "UIControl+DDBlockActions.h"
 
 
 #endif

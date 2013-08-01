@@ -48,12 +48,14 @@
 	    DLog(@"取消按钮时相应操作，取消http请求等操作。");
 	}
 
-5) 新增两种样式
-
-	默认iOS风格
+5) 风格
 
 	在 ACLoadingView.h 头部宏中选择
-	ACLV_USING_TYPE ACLoadingViewTypeiOS
+	ACLV_USING_TYPE 
+
+	下方截图是最开始时做的几种样式
+	默认使用最上方动态图中的 ACLoadingViewTypeMellow 样式
+	需要改变 Cancel 字符串 请在头部宏 ACLV_Cancel_String 改
 
 <img src="https://github.com/albertgh/ACLoadingView/raw/master/style.png"/>
 
