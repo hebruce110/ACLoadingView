@@ -29,6 +29,7 @@
 		18FC740B179D2C820084648E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FC740A179D2C820084648E /* QuartzCore.framework */; };
 		5011745017A8FADA00C6E43C /* btn_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5011744E17A8FADA00C6E43C /* btn_close.png */; };
 		5011745117A8FADA00C6E43C /* btn_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5011744F17A8FADA00C6E43C /* btn_close@2x.png */; };
+		5095585C17AA2E8A00CB7614 /* UIControl+DDBlockActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5095585B17AA2E8A00CB7614 /* UIControl+DDBlockActions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,8 @@
 		18FC740A179D2C820084648E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5011744E17A8FADA00C6E43C /* btn_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_close.png; sourceTree = "<group>"; };
 		5011744F17A8FADA00C6E43C /* btn_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_close@2x.png"; sourceTree = "<group>"; };
+		5095585A17AA2E8A00CB7614 /* UIControl+DDBlockActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+DDBlockActions.h"; sourceTree = "<group>"; };
+		5095585B17AA2E8A00CB7614 /* UIControl+DDBlockActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+DDBlockActions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 		18FC73F8179D2B060084648E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5095585A17AA2E8A00CB7614 /* UIControl+DDBlockActions.h */,
+				5095585B17AA2E8A00CB7614 /* UIControl+DDBlockActions.m */,
 				18FC73F9179D2B060084648E /* UINavigationBar+Background.h */,
 				18FC73FA179D2B060084648E /* UINavigationBar+Background.m */,
 				18D8FD8317A100A80065DADB /* UIAlertView+Blocks.h */,
@@ -299,6 +304,7 @@
 				18FC7404179D2B060084648E /* ACLoadingView.m in Sources */,
 				18FC7408179D2B930084648E /* ViewController.m in Sources */,
 				18D8FD8517A100A80065DADB /* UIAlertView+Blocks.m in Sources */,
+				5095585C17AA2E8A00CB7614 /* UIControl+DDBlockActions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
